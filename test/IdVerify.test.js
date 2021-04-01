@@ -13,6 +13,8 @@ beforeEach(async () => {
     // get a list of accounts
     accounts = await web3.eth.getAccounts();
 
+    console.log("bytecode\n" + bytecode);
+
     // use one account to deploy contract
     // deploy contract
     let contract = await new web3.eth.Contract(JSON.parse(interface))
