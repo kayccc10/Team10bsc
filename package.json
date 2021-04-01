@@ -1,0 +1,26 @@
+{
+  "name": "team10bsc",
+  "version": "1.0.0",
+  "description": "front end for identity management",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayccc10/Team10bsc.git"
+  },
+  "author": "team10bsc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kayccc10/Team10bsc/issues"
+  },
+  "homepage": "https://github.com/kayccc10/Team10bsc#readme",
+  "dependencies": {
+    "ganache-cli": "^6.12.2",
+    "mocha": "^8.3.2",
+    "solc": "^0.4.25",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.3.4"
+  }
+}
