@@ -52,7 +52,7 @@ contract IdVerify {
 
   function addUser(string memory _fullName, string memory _emailAddress, uint _phoneNo) public {
 
-    Users[owner] = UserInfo(_fullName, _emailAddress, _phoneNo, msg.sender);
+    Users[msg.sender] = UserInfo(_fullName, _emailAddress, _phoneNo, msg.sender);
     emit userCreated(_fullName, _emailAddress, _phoneNo, msg.sender);
   }
 
@@ -60,9 +60,8 @@ contract IdVerify {
     require(bytes(_idHash).length > 0);
     require(bytes(_idName).length > 0);
     require(bytes(_idHomeAddress).length > 0);
-    require(msg.sender != address(0));
     fileCount++;
-    userIds[fileCount][owner] = UserId(_idNo, _idName, _idDob, _idHash, _idHomeAddress, msg.sender);
+    userIds[fileCount][msg.sender] = UserId(_idNo, _idName, _idDob, _idHash, _idHomeAddress, msg.sender);
     emit idCreated(_idNo, _idName, _idDob, _idHash, _idHomeAddress, msg.sender);
   }
 
