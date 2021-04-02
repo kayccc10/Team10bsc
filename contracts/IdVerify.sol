@@ -65,7 +65,7 @@ contract IdVerify {
     emit idCreated(_idNo, _idName, _idDob, _idHash, _idHomeAddress, msg.sender);
   }
 
-  function registerInstitution(string _name)public {
+  function registerInstitution(string memory _name)public {
         institutionInfo[msg.sender] = _name;
     }
     function sendRequest(address _a, bool[] memory _data) public{  // Institution Side
