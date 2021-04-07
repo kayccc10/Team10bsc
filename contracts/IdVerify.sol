@@ -1,5 +1,3 @@
-pragma solidity >=0.4.22 <0.9.0;
-
 contract IdVerify {
 
   //uint private fileCount = 0;
@@ -37,13 +35,14 @@ contract IdVerify {
     );
     
      struct idRequest{
-		string RequestedBy;
-		uint idNo;
-		uint idName;
-		uint idDOB;
-		uint idHash;
-		uint idAddress;
-		uint idOverAllStatus;
+        address institutionAddr;
+	string RequestedBy;
+	uint idNo;
+	uint idName;
+	uint idDOB;
+	uint idHash;
+	uint idAddress;
+	uint idOverAllStatus;
     }
     
      /*
@@ -97,13 +96,13 @@ contract IdVerify {
         institutionInfo[msg.sender] = _name;
     }
      function sendRequest(address userAddress,string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
-        dataRequested[userAddress].push(idRequest(_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
+        dataRequested[userAddress].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
     }
     function getInstitutionAddr() public view returns(address [] memory){  // User Side   List of institutions that sent request
         return requestInstitutions[msg.sender];
     }
     
-     function viewIdRequestLength(address userAddress) public view returns(uint) { 
+     function viewIdRequestLength(address userAddress) public view returns(uint) {  // ->>>>  msg.sender
         return dataRequested[userAddress].length;
     }
     
@@ -130,6 +129,31 @@ contract IdVerify {
         UserInfo storage ThisUser=Users[UserAddress][UserIndex];
         return (ThisUser.fullName, ThisUser.emailAddress, ThisUser.phoneNo, ThisUser.uploader);
     }
+    function getData(address _userAdd)public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress){
+        UserId memory _userData = userIds[_userAdd][0];       
+        for(uint i=0; i<dataRequested[_userAdd].length; i++){
+            if(dataRequested[_userAdd][i].institutionAddr == msg.sender){
+                idRequest memory requestedData = dataRequested[_userAdd][i];
+                if(requestedData.idNo == 2){
+                    idNo = _userData.idNo;
+                }
+                if(requestedData.idName == 2){
+                    idName = _userData.idName;
+                }
+                if(requestedData.idDOB == 2){
+                    idDob = _userData.idDob;
+                }
+                if(requestedData.idHash == 2){
+                    idHash = _userData.idHash;
+                }
+                if(requestedData.idAddress == 2){
+                    idHomeAddress = _userData.idHomeAddress;
+                }
 
+                break;
+            }
+        }
+        return (idNo, idName, idDob, idHash, idHomeAddress);
+    }
    
 }
