@@ -88,7 +88,7 @@ contract IdVerify {
   }
   
   function viewUserid(address UserAddress, uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
-         UserId storage ThisUser=userIds [UserAddress][UserIndex];
+  	UserId storage ThisUser=userIds [UserAddress][UserIndex];
         return (ThisUser.idNo, ThisUser.idName, ThisUser.idDob, ThisUser.idHash, ThisUser.idHomeAddress);
     }
 
@@ -102,27 +102,27 @@ contract IdVerify {
         return requestInstitutions[msg.sender];
     }
     
-     function viewIdRequestLength(address userAddress) public view returns(uint) {  // ->>>>  msg.sender
-        return dataRequested[userAddress].length;
+     function viewIdRequestLength() public view returns(uint) {  
+        return dataRequested[msg.sender].length;
     }
     
-     function viewIdRequestHeader(address userAddress, uint RequestIndex) public view returns(string memory RequestedBy, uint idOverAllStatus) {
-        idRequest storage thisiIdRequest = dataRequested[userAddress][RequestIndex];
+     function viewIdRequestHeader( uint RequestIndex) public view returns(string memory RequestedBy, uint idOverAllStatus) {
+        idRequest storage thisiIdRequest = dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idOverAllStatus);
     }
     
-     function viewidRequestDetail(address userAddress, uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
-        idRequest storage thisiIdRequest=dataRequested[userAddress][RequestIndex];
+     function viewidRequestDetail( uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
+        idRequest storage thisiIdRequest=dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idAddress, thisiIdRequest.idOverAllStatus);
     }
 
-    function UpdateRequestStatus(address userAddress, uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
-        dataRequested[userAddress][RequestIndex].idNo=_idNo;
-		dataRequested[userAddress][RequestIndex].idName=_idName;
-		dataRequested[userAddress][RequestIndex].idDOB=_idDOB;
-		dataRequested[userAddress][RequestIndex].idHash=_idHash;
-		dataRequested[userAddress][RequestIndex].idAddress=_idAddress;
-		dataRequested[userAddress][RequestIndex].idOverAllStatus=_idOverAllStatus;
+    function UpdateRequestStatus( uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
+        dataRequested[msg.sender][RequestIndex].idNo=_idNo;
+	dataRequested[msg.sender][RequestIndex].idName=_idName;
+	dataRequested[msg.sender][RequestIndex].idDOB=_idDOB;
+	dataRequested[msg.sender][RequestIndex].idHash=_idHash;
+	dataRequested[msg.sender][RequestIndex].idAddress=_idAddress;
+	dataRequested[msg.sender][RequestIndex].idOverAllStatus=_idOverAllStatus;
     }
     
     function viewUser(address UserAddress, uint UserIndex) public view returns(string memory fullName,string memory emailAddress,uint phoneNo,address uploader) {
