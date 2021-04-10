@@ -1,4 +1,8 @@
 import {Component} from "react/cjs/react.production.min";
+import Switch from "react-bootstrap/Switch";
+import Team from "../Team";
+import {Route, Router} from 'react-router';
+import App from "../App";
 
 class Navbar extends Component {
 
@@ -24,16 +28,22 @@ class Navbar extends Component {
                                 <a className="nav-link" href="#">Pricing</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Team Members</a>
+                                <a className="nav-link" href="/team">Team Members</a>
                             </li>
                         </ul>
+
+                        {/*<Router>*/}
+                        {/*    /!*<div className="App">*!/*/}
+                        {/*        <Route path="/" component={App} />*/}
+                        {/*        <Route exact path="/team" component={Team}/>*/}
+                        {/*    /!*</div>*!/*/}
+                        {/*</Router>*/}
+
                     </div>
                 </div>
             </nav>
         )
-}
-
-
+    }
 }
 
 export default Navbar

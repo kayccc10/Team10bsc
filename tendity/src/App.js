@@ -38,7 +38,7 @@ class App extends Component {
     render() {
         const {owner, value, balance} = this.state
         return (
-            <div className="container" style={{opacity: "80%"}}>
+            <div className="container" style={{opacity: "90%"}}>
                 <Navbar/>
 
                 <header className="card">
