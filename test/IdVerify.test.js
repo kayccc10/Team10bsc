@@ -6,9 +6,7 @@ const web3 = new Web3(ganache.provider());
 const {interface, bytecode} = require('../compile');
 
 let accounts;
-let inbox;
 let contractInstance;
-let initialMessage = 'Yay, hi there'
 beforeEach(async () => {
     // get a list of accounts
     accounts = await web3.eth.getAccounts();
@@ -36,11 +34,8 @@ beforeEach(async () => {
         })
 });
 
-describe('Lottery', () => {
+describe('idVerify Contract', () => {
     it('deploys a contract ', () => {
         assert.ok(contractInstance.options.address)
     });
-
-
 });
-
