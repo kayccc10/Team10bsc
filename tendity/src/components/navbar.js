@@ -1,8 +1,4 @@
 import {Component} from "react/cjs/react.production.min";
-import Switch from "react-bootstrap/Switch";
-import Team from "../Team";
-import {Route, Router} from 'react-router';
-import App from "../App";
 
 class Navbar extends Component {
 
