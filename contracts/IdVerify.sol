@@ -89,7 +89,7 @@ contract IdVerify {
   
   /*	Tendity members upload their identity cards information here as it
   	appears on their identity cards. The hash generated when their
-	Tendity account was created must also be entered here		*/
+	Tendity account was created must be entered here		*/
   
   
   function viewUserid(uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
