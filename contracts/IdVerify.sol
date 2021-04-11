@@ -89,7 +89,7 @@ contract IdVerify {
   
   /*	Tendity members upload their identity cards information here as it
   	appears on their identity cards. The hash generated when their
-	Tendity account was created should be entered here		*/
+	Tendity account was created must also be entered here		*/
   
   
   function viewUserid(uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
@@ -115,20 +115,21 @@ contract IdVerify {
         return dataRequested[msg.sender].length;
     }
     
+    // User can view the total number of requests from institutions here
     
      function viewIdRequestStatus(uint RequestIndex) public view returns(string memory RequestedBy, uint idOverAllStatus) {
         idRequest storage thisiIdRequest = dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idOverAllStatus);
     }
     
-    // Users views institutions that request for their identity information here and their current status
+    // Users views institutions that request for their identity information here and their current approval status
     
      function viewidRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
         idRequest storage thisiIdRequest=dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idAddress, thisiIdRequest.idOverAllStatus);
     }
     
-    // Users views in details the identity information requested by a specific institution
+    // Users views in detail the identity information requested by a specific institution
 
     function updateIdRequestStatus(uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
         dataRequested[msg.sender][RequestIndex].idNo=_idNo;
@@ -146,6 +147,9 @@ contract IdVerify {
         UserInfo storage ThisUser=Users[msg.sender][UserIndex];
         return (ThisUser.fullName, ThisUser.emailAddress, ThisUser.phoneNo, ThisUser.uploader);
     }
+    
+    // Users views their profile information here
+    
     function getData(address _userAdd)public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress){
         UserId memory _userData = userIds[_userAdd][0];       
         for(uint i=0; i<dataRequested[_userAdd].length; i++){
@@ -172,5 +176,7 @@ contract IdVerify {
         }
         return (idNo, idName, idDob, idHash, idHomeAddress);
     }
+    
+    // This gives approval from the user to the organization/institute to use their data
    
 }
