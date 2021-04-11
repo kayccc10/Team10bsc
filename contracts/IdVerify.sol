@@ -75,6 +75,9 @@ contract IdVerify {
     emit userCreated(_fullName, _emailAddress, _phoneNo, msg.sender);
   }
   
+  /*	Users does their registration here, data required includes:
+ 	full name, email address, and phone number	 */
+  
   function addUserId(uint _idNo, string memory _idName, uint _idDob, string memory _idHash, string memory _idHomeAddress) public {
     require(bytes(_idHash).length > 0);
     require(bytes(_idName).length > 0);
@@ -84,31 +87,49 @@ contract IdVerify {
     emit idCreated(_idNo, _idName, _idDob, _idHash, _idHomeAddress);
   }
   
+  /*	Tendity members upload their identity cards information here as it
+  	appears on their identity cards. The hash generated when their
+	Tendity account was created must also be entered here		*/
+  
+  
   function viewUserid(uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
          UserId storage ThisUser=userIds [msg.sender][UserIndex];
         return (ThisUser.idNo, ThisUser.idName, ThisUser.idDob, ThisUser.idHash, ThisUser.idHomeAddress);
     }
 
+// Users can view their account information here
+
   function registerInstitution(string memory _name)public {
         institutionInfo[msg.sender] = _name;
     }
+    
+    // Institutions does their registration here
+    
      function sendRequest(string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
         dataRequested[msg.sender].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
     }
     
+     // Institutions makes request for Tendity user information here
+    
      function viewIdRequestLength() public view returns(uint) {  // ->>>>  msg.sender
         return dataRequested[msg.sender].length;
     }
+    
+    // User can view the total number of requests from institutions here
     
      function viewIdRequestStatus(uint RequestIndex) public view returns(string memory RequestedBy, uint idOverAllStatus) {
         idRequest storage thisiIdRequest = dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idOverAllStatus);
     }
     
+    // Users views institutions that request for their identity information here and their current approval status
+    
      function viewidRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
         idRequest storage thisiIdRequest=dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idAddress, thisiIdRequest.idOverAllStatus);
     }
+    
+    // Users views in detail the identity information requested by a specific institution
 
     function updateIdRequestStatus(uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
         dataRequested[msg.sender][RequestIndex].idNo=_idNo;
@@ -119,10 +140,16 @@ contract IdVerify {
 		dataRequested[msg.sender][RequestIndex].idOverAllStatus=_idOverAllStatus;
     }
     
+    // User either accept or reject the institution request here
+    // The status of the request is shown here
+    
     function viewUser(uint UserIndex) public view returns(string memory fullName,string memory emailAddress,uint phoneNo,address uploader) {
         UserInfo storage ThisUser=Users[msg.sender][UserIndex];
         return (ThisUser.fullName, ThisUser.emailAddress, ThisUser.phoneNo, ThisUser.uploader);
     }
+    
+    // Users views their profile information here
+    
     function getData(address _userAdd)public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress){
         UserId memory _userData = userIds[_userAdd][0];       
         for(uint i=0; i<dataRequested[_userAdd].length; i++){
@@ -149,5 +176,7 @@ contract IdVerify {
         }
         return (idNo, idName, idDob, idHash, idHomeAddress);
     }
+    
+    // This gives approval from the user to the organization/institute to use their data
    
 }
