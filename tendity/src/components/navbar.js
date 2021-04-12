@@ -1,4 +1,5 @@
 import {Component} from "react/cjs/react.production.min";
+import Menu from "./Menu";
 
 class Navbar extends Component {
 
@@ -12,6 +13,7 @@ class Navbar extends Component {
                             aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
+                    <Menu/>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
