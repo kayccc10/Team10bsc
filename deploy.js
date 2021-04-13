@@ -2,9 +2,7 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const {interface, bytecode} = require('./compile');
 
-const provider = new HDWalletProvider(process.env.METAMASK_SEED,
-    'https://rinkeby.infura.io/v3/8ba15bf654b648fcb9a07708c1dc1c05'
-);
+const provider = new HDWalletProvider(process.env.METAMASK_SEED,process.env.INFURA_RINKEBY);
 
 const web3 = new Web3(provider);
 
@@ -16,7 +14,7 @@ const deploy = async () => {
 
     await new web3.eth.Contract(JSON.parse(interface))
         .deploy({data: bytecode})
-        .send({from: accounts[0], gas: '1000000'},
+        .send({from: accounts[0], gasLimit: '1000000'},
             function (error, transactionHash) {
                 console.log("transactionHash : " +transactionHash)
             })

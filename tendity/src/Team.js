@@ -1,6 +1,5 @@
 import './App.css';
 import {Component} from "react/cjs/react.production.min";
-import Navbar from "./components/navbar";
 
 class App extends Component {
     render() {
