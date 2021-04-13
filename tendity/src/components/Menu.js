@@ -13,17 +13,19 @@ export default function Menu() {
         <Router>
             <div>
                 <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">Users</Link>
-                        </li>
-                    </ul>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/about" className="nav-link">About</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/team" className="nav-link">Team Members</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
 
                 {/* A <Switch> looks through its children <Route>s and
@@ -36,14 +38,15 @@ export default function Menu() {
                         {/*<Team/>*/}
                     </Route>
                     <Route path="/about">
-                        <About/>
+                        {/*<About/>*/}
                     </Route>
                 </Switch>
             </div>
         </Router>
-    );
+);
 }
 
-function About() {
-    return <h2>About</h2>;
-}
+function About()
+    {
+        return <h2>About</h2>;
+    }
