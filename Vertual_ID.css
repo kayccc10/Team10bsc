@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+html,body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+.all{
+    flex: 1 0 auto;
+}
+
+b{width:100px;}
+a{text-decoration: none; color:white;}
+
+.side{
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px;
+}
+.top{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+.title{
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 15px;
+    font-family: Monospace, Arial;
+}
+.content{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.foot{
+    width: 100%;
+    margin-bottom: 0px;
+    text-align: center;
+    flex-shrink: 0;
+    padding: 20px;
+}
+
+footer,.top{
+        background: linear-gradient(left, pink, purple, black, aqua);
+        background: -webkit-linear-gradient(left, pink, purple, black, aqua);
+        background: -o-linear-gradient(left, pink, purple, black, aqua);
+        background: -moz-linear-gradient(left, pink, purple, black, aqua);
+        background: -ms-linear-gradient(left, pink, purple, black, aqua);
+        background:;
+        color:white;
+}
+.logs{
+    margin-left: 50px;
+    margin-right:50px;
+    border: ;
+}
+.logs div{
+    height: auto;
+    padding: 30px;
+    margin-top: 5px;
+    border-top: 0.5px solid grey;
+    border-bottom: 0.5px solid grey;
+}
+
+#form1,
+#form2,
+#form3{
+    display: none;
+}
+
+#form1:target{display: block;}
+#form2:target{display: block;}
+#form3:target{display: block;}
+
+button a{color: grey;}
