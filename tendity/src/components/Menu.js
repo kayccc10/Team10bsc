@@ -12,7 +12,7 @@ export default function Menu() {
                                 <Link to="/" className="nav-link">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/about" className="nav-link">About</Link>
+                                <Link to="/registered-organisations" className="nav-link">Registered Organisations</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/team" className="nav-link">Team Members</Link>
@@ -25,6 +25,9 @@ export default function Menu() {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route path="/home">
+                        {/*<App/>*/}
+                    </Route>
+                    <Route path="/registered-organisations">
                         {/*<App/>*/}
                     </Route>
                     <Route path="/team">

@@ -22,7 +22,7 @@ class User extends Component {
 
     async componentDidMount() {
         const manager = await idVerify.methods.owner().call();
-        this.setState({manager});
+        this.setState({owner: manager});
     }
 
     onCreateUser = async () => {
@@ -32,7 +32,7 @@ class User extends Component {
         await idVerify.methods.idRequest().send({
             from: accounts[0]
         });
-        this.setState({message: 'Winner has been picked!'})
+        this.setState({message: 'Creating User..'})
     }
 
     render() {
