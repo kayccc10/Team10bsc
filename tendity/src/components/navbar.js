@@ -14,30 +14,23 @@ class Navbar extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Menu/>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Get Started</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Features</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/team">Team Members</a>
-                            </li>
-                        </ul>
+                    {/*<div className="collapse navbar-collapse" id="navbarNav">*/}
+                    {/*    <ul className="navbar-nav">*/}
+                    {/*        <li className="nav-item">*/}
+                    {/*            <a className="nav-link active" aria-current="page" href="#">Get Started</a>*/}
+                    {/*        </li>*/}
+                    {/*        <li className="nav-item">*/}
+                    {/*            <a className="nav-link" href="#">Features</a>*/}
+                    {/*        </li>*/}
+                    {/*        <li className="nav-item">*/}
+                    {/*            <a className="nav-link" href="#">Pricing</a>*/}
+                    {/*        </li>*/}
+                    {/*        <li className="nav-item">*/}
+                    {/*            <a className="nav-link" href="/team">Team Members</a>*/}
+                    {/*        </li>*/}
+                    {/*    </ul>*/}
 
-                        {/*<Router>*/}
-                        {/*    /!*<div className="App">*!/*/}
-                        {/*        <Route path="/" component={App} />*/}
-                        {/*        <Route exact path="/team" component={Team}/>*/}
-                        {/*    /!*</div>*!/*/}
-                        {/*</Router>*/}
-
-                    </div>
+                    {/*</div>*/}
                 </div>
             </nav>
         )

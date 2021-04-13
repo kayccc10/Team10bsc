@@ -6,7 +6,6 @@ class App extends Component {
     render() {
         return (
             <div className="container" style={{opacity: "90%"}}>
-                {/*<Navbar/>*/}
                 <body>
                 <div className="container">
                     <h5>Team Info</h5>

@@ -1,37 +1,28 @@
 import './App.css';
-import web3 from "./web3";
 import idVerify from "./idVerify";
 import {Component} from "react/cjs/react.production.min";
-import Navbar from "./components/navbar";
 import Home from './components/Home';
+import Navbar from "./components/navbar";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            owner: '',
-            balance: '',
-            value: '',
-            message: '',
-            idNo: '',
-            idName: '',
-            idDob: '',
-            idHash: '',
-            idHomeAddress: ''
+            owner: ''
         }
     }
 
     async componentDidMount() {
-        const manager = await idVerify.methods.owner().call();
-        this.setState({manager});
+        const owner = await idVerify.methods.owner().call();
+        this.setState({owner: owner});
     }
 
     render() {
-        const {owner, value, balance} = this.state
         return (
-            <div className="container" style={{opacity: "90%"}}>
+            <div className="container" style={{opacity: "90%", width: "100%", height: "100%"}}>
+                pp
                 <Navbar/>
-                <Home />
+                <Home/>
             </div>
         );
     }

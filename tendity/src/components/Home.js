@@ -1,6 +1,7 @@
 import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
+import HomeMenu from "./HomeMenu";
 
 class Home extends Component {
 
@@ -37,18 +38,13 @@ class Home extends Component {
     render() {
         return (
             <div className="container" style={{padding: "0px"}}>
-                <body >
-                <div className="container">
-                    <h5>.</h5>
-                    <div className="px-4 py-5 my-5 text-center">
-                            <h1 className="display-5 fw-bold">Welcome to Tendity</h1>
-                            <div className="col-lg-6 mx-auto">
-                                <p className="lead mb-4">Identity management made easy....blah blah blah.</p>
-                                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                                    <button type="button" className="btn btn-outline-primary btn-lg px-4 me-sm-3">User</button>
-                                    <button type="button" className="btn btn-outline-success btn-lg px-4">Organisation</button>
-                                </div>
-                            </div>
+                <body>
+                <h5>.</h5>
+                <div className="px-4 py-5 my-5 text-center">
+                    <h1 className="display-5 fw-bold">Welcome to Tendity</h1>
+                    <div className="col-lg-6 mx-auto">
+                        <p className="lead mb-4">Identity management made easy....blah blah blah.</p>
+                        <HomeMenu/>
                     </div>
                 </div>
                 <hr/>
