@@ -18,7 +18,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="container" style={{padding: "0px"}}>
+            // <div className="container" style={{padding: "0px"}}>
                 <body>
                 <h5>.</h5>
                 <div className="px-4 py-5 my-5 text-center">
@@ -31,7 +31,7 @@ class Home extends Component {
                 <hr/>
                 <h4>{this.state.message}</h4>
                 </body>
-            </div>
+            // </div>
         )
     }
 }

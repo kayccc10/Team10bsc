@@ -25,8 +25,7 @@ class UserRequest extends Component {
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body >
-                <hr/>
-                <OrganisationMenu/>
+                <h5>.</h5>
                 <hr/>
                 All Organisation Names will appear here.
                 <hr/>

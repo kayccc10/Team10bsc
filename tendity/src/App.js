@@ -20,9 +20,7 @@ class App extends Component {
     render() {
         return (
             <div className="container" style={{opacity: "90%", width: "100%", height: "100%"}}>
-                pp
                 <Navbar/>
-                <Home/>
             </div>
         );
     }
