@@ -1,7 +1,6 @@
 import './App.css';
 import idVerify from "./idVerify";
 import {Component} from "react/cjs/react.production.min";
-import Home from './components/Home';
 import Navbar from "./components/navbar";
 
 class App extends Component {

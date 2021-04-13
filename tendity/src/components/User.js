@@ -16,8 +16,16 @@ class User extends Component {
             idName: '',
             idDob: '',
             idHash: '',
-            idHomeAddress: ''
+            idHomeAddress: '',
+            fullName: '',
+            phoneNumber: ''
         }
+    }
+
+    handleInputChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
 
     async componentDidMount() {
@@ -25,12 +33,19 @@ class User extends Component {
         this.setState({owner: manager});
     }
 
-    onCreateUser = async () => {
+    onCreateUser = async e => {
+        e.preventDefault();
         const accounts = await web3.eth.getAccounts()
         this.setState({message: 'Waiting for confirmation...'})
 
-        await idVerify.methods.idRequest().send({
-            from: accounts[0]
+        console.log("------------" + this.state.email)
+        await idVerify.methods.addUser(
+            this.state.fullName,
+            this.state.email,
+            this.state.phoneNumber
+        ).send({
+            from: accounts[0],
+            gas: '1000000'
         });
         this.setState({message: 'Creating User..'})
     }
@@ -38,62 +53,57 @@ class User extends Component {
     render() {
         return (
             <div className="container" style={{padding: "0px"}}>
-                <body >
+                <body>
                 <hr/>
                 <UserMenu/>
-                <form onSubmit='' className="row g-3">
+                <form onSubmit={this.onCreateUser} className="row g-3">
                     <div className="col-auto" style={{padding: "30px"}}>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">Full name</label>
+                            <label htmlFor="fullName" className="form-label">Full name</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
-                                type="amount" className="form-control" id="amount"
+                                name="fullName"
+                                onChange={this.handleInputChange.bind(this)}
+                                type="text" className="form-control" id="fullName"
                                 placeholder="full name"/>
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
-
+                            <label htmlFor="email" className="form-label">Email</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
+                                name="email"
+                                onChange={this.handleInputChange.bind(this)}
                                 type="email" className="form-control" id="email"
                                 placeholder="email"/>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">Phone Number</label>
-
+                            <label htmlFor="phoneNo" className="form-label">Phone Number</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
-                                type="number" className="form-control" id="phoneNo"
+                                name="phoneNo"
+                                onChange={this.handleInputChange.bind(this)}
+                                type="text" className="form-control" id="phoneNo"
                                 placeholder="phone no"/>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">ID Number</label>
-
+                            <label htmlFor="idNo" className="form-label">ID Number</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
+                                name="idNo"
+                                onChange={this.handleInputChange.bind(this)}
                                 type="text" className="form-control" id="idNo"
                                 placeholder="id no"/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Date of Birth</label>
-
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
+                                name="dob"
+                                onChange={this.handleInputChange.bind(this)}
                                 type="date" className="form-control" id="dob"
                                 placeholder="date of birth"/>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleFormControlInput1" className="form-label">Home Address</label>
-
+                            <label htmlFor="homeAddress" className="form-label">Home Address</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
+                                name="homeAddress"
+                                onChange={this.handleInputChange.bind(this)}
                                 type="text" className="form-control" id="homeAddress"
                                 placeholder="home address"/>
                         </div>

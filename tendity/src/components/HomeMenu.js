@@ -2,7 +2,6 @@ import React from "react";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import User from "./User";
 import Organisation from "./Organisation";
-import OrganisationsList from "./OrganisationsList";
 
 export default function HomeMenu() {
     return (
