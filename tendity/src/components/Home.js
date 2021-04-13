@@ -8,31 +8,12 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            owner: '',
-            balance: '',
-            value: '',
-            message: '',
-            idNo: '',
-            idName: '',
-            idDob: '',
-            idHash: '',
-            idHomeAddress: ''
+            owner: ''
         }
     }
 
     async componentDidMount() {
-        const manager = await idVerify.methods.owner().call();
-        this.setState({manager});
-    }
-
-    onCreateUser = async () => {
-        const accounts = await web3.eth.getAccounts()
-        this.setState({message: 'Waiting for confirmation...'})
-
-        await idVerify.methods.idRequest().send({
-            from: accounts[0]
-        });
-        this.setState({message: 'Winner has been picked!'})
+        this.setState({owner: await idVerify.methods.owner().call()});
     }
 
     render() {

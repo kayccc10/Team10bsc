@@ -1,8 +1,9 @@
 import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
+import UserMenu from "./UserMenu";
 
-class Home extends Component {
+class User extends Component {
 
     constructor(props) {
         super(props);
@@ -38,6 +39,8 @@ class Home extends Component {
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body >
+                <hr/>
+                <UserMenu/>
                 <form onSubmit='' className="row g-3">
                     <div className="col-auto" style={{padding: "30px"}}>
                         <div className="mb-3">
@@ -94,20 +97,12 @@ class Home extends Component {
                                 type="text" className="form-control" id="homeAddress"
                                 placeholder="home address"/>
                         </div>
-                        {/*<input*/}
-                        {/*    value={this.state.value}*/}
-                        {/*    onChange={e => this.setState({value: e.target.value})}*/}
-                        {/*    type="amount" className="form-control" id="verficationAmount"*/}
-                        {/*    placeholder="verfication amount"/>*/}
                         <p>Note! To interact with the contract, you need some BNB(0.001).</p>
                         <div className="col-auto">
                             <button type="submit" className="btn btn-primary mb-3">Submit</button>
                         </div>
                     </div>
                 </form>
-                <hr/>
-
-                <button onClick='' type="button" className="btn btn-success">Verify</button>
                 <hr/>
                 <h4>{this.state.message}</h4>
                 </body>
@@ -116,4 +111,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default User;
