@@ -92,7 +92,7 @@ contract IdVerify {
 	id image is uploaded on the blockchain must be entered here		*/
   
   
-  function viewUserid(uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
+  function viewUserId(uint UserIndex) public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress) {
          UserId storage ThisUser=userIds [msg.sender][UserIndex];
         return (ThisUser.idNo, ThisUser.idName, ThisUser.idDob, ThisUser.idHash, ThisUser.idHomeAddress);
     }
@@ -124,7 +124,7 @@ contract IdVerify {
     
     // Users views institutions that request for their identity information here and their current approval status
     
-     function viewidRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
+     function viewIdRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
         idRequest storage thisiIdRequest=dataRequested[msg.sender][RequestIndex];
         return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idAddress, thisiIdRequest.idOverAllStatus);
     }
