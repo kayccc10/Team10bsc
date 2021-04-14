@@ -111,7 +111,7 @@ contract IdVerify {
     
      // Institutions makes request for Tendity user information here
     
-     function viewIdRequestLength() public view returns(uint) {  // ->>>>  msg.sender
+     function viewIdRequestLength() public view returns(uint) {
         return dataRequested[msg.sender].length;
     }
     
