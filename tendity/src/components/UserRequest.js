@@ -1,7 +1,6 @@
 import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
-import UserMenu from "./UserMenu";
 
 class UserRequest extends Component {
 

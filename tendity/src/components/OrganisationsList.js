@@ -1,9 +1,7 @@
-import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
-import OrganisationMenu from "./OrganisationMenu";
 
-class UserRequest extends Component {
+class OrganisationsList extends Component {
 
     constructor(props) {
         super(props);
@@ -15,18 +13,15 @@ class UserRequest extends Component {
     }
 
     getAccounts = async () => {
-        const accounts = await web3.eth.getAccounts()
-        const organisations = await idVerify.methods.institutionInfo().send({
-            from: accounts[0]
-        });
+        const organisations = await idVerify.methods.institutionInfo(this.state.owner).call();
         this.setState({message: 'Fetched institutions...'});
         this.setState({organisations: organisations});
-        console.log(":::: "+JSON.parse(organisations))
+        console.log(":::: "+this.state.owner)
     }
 
     async componentDidMount() {
         this.setState({owner: await idVerify.methods.owner().call()});
-        this.getAccounts();
+        await this.getAccounts();
     }
 
     render() {
@@ -44,4 +39,4 @@ class UserRequest extends Component {
     }
 }
 
-export default UserRequest;
+export default OrganisationsList;

@@ -11,10 +11,11 @@ const deploy = async () => {
     //get accounts
     const accounts = await web3.eth.getAccounts();
     console.log("------Account [0]-------\n" +accounts[0])
+    console.log("------interface-------\n" +interface)
 
     await new web3.eth.Contract(JSON.parse(interface))
         .deploy({data: bytecode})
-        .send({from: accounts[0], gasLimit: '1000000'},
+        .send({from: accounts[0], gasLimit: '5000000'},
             function (error, transactionHash) {
                 console.log("transactionHash : " +transactionHash)
             })

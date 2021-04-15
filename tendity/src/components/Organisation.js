@@ -1,7 +1,6 @@
 import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
-import UserMenu from "./UserMenu";
 import OrganisationMenu from "./OrganisationMenu";
 
 class Organisation extends Component {
@@ -26,17 +25,13 @@ class Organisation extends Component {
 
     onAddOrganisation = async () => {
         console.log("------------" + this.state.organisationName)
-
         const accounts = await web3.eth.getAccounts()
-
-        await idVerify.methods.registerInstitution(
-            this.state.organisationName
-        ).send({
+        await idVerify.methods.registerInstitution(this.state.organisationName).send({
             from: accounts[0],
             gas: '1000000'
         });
 
-        this.setState({message: 'Added Organisation..: ' +this.state.orgName})
+        this.setState({message: 'Added Organisation..: ' +this.state.organisationName})
     }
 
     render() {
@@ -55,7 +50,7 @@ class Organisation extends Component {
                                 type="text" className="form-control" id="organisationName"
                                 placeholder="Organisation name"/>
                         </div>
-                        <p>Note! To interact with the contract, you need some BNB(0.001).</p>
+                        <p>Note! To interact with the contract, you need some ETH(0.001).</p>
                         <div className="col-auto">
                             <button type="submit" className="btn btn-primary mb-3">Add Organisation</button>
                         </div>
