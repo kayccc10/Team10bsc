@@ -18,7 +18,7 @@ class User extends Component {
             idHash: '',
             idHomeAddress: '',
             fullName: '',
-            phoneNumber: ''
+            phoneNo: ''
         }
     }
 
@@ -38,16 +38,18 @@ class User extends Component {
         const accounts = await web3.eth.getAccounts()
         this.setState({message: 'Waiting for confirmation...'})
 
+        console.log("------------" + this.state.fullName)
         console.log("------------" + this.state.email)
+        console.log("------------" + this.state.phoneNo)
         await idVerify.methods.addUser(
             this.state.fullName,
             this.state.email,
-            this.state.phoneNumber
+            this.state.phoneNo
         ).send({
             from: accounts[0],
             gas: '1000000'
         });
-        this.setState({message: 'Creating User..'})
+        this.setState({message: 'User created.. ' +this.state.email})
     }
 
     render() {

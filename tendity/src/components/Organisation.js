@@ -9,7 +9,8 @@ class Organisation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            owner: ''
+            owner: '',
+            organisationName: ''
         }
     }
 
@@ -17,14 +18,25 @@ class Organisation extends Component {
         this.setState({owner: await idVerify.methods.owner().call()});
     }
 
-    onAddOrganisation = async () => {
-        const accounts = await web3.eth.getAccounts()
-        this.setState({message: 'Waiting for confirmation...'})
-
-        await idVerify.methods.idRequest().send({
-            from: accounts[0]
+    handleInputChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
         });
-        this.setState({message: 'Adding Organisation..'})
+    }
+
+    onAddOrganisation = async () => {
+        console.log("------------" + this.state.organisationName)
+
+        const accounts = await web3.eth.getAccounts()
+
+        await idVerify.methods.registerInstitution(
+            this.state.organisationName
+        ).send({
+            from: accounts[0],
+            gas: '1000000'
+        });
+
+        this.setState({message: 'Added Organisation..: ' +this.state.orgName})
     }
 
     render() {
@@ -33,14 +45,14 @@ class Organisation extends Component {
                 <body >
                 <hr/>
                 <OrganisationMenu/>
-                <form onSubmit='' className="row g-3">
+                <form onSubmit={this.onAddOrganisation} className="row g-3">
                     <div className="col-auto" style={{padding: "30px"}}>
                         <div className="mb-3">
                             <label htmlFor="orgName" className="form-label">Organisation name</label>
                             <input
-                                value={this.state.value}
-                                onChange={e => this.setState({value: e.target.value})}
-                                type="text" className="form-control" id="orgName"
+                                name="organisationName"
+                                onChange={this.handleInputChange.bind(this)}
+                                type="text" className="form-control" id="organisationName"
                                 placeholder="Organisation name"/>
                         </div>
                         <p>Note! To interact with the contract, you need some BNB(0.001).</p>

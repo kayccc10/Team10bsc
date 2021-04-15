@@ -8,17 +8,25 @@ class UserRequest extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            owner: ''
+            organisationName: '',
+            owner: '',
+            organisations: []
         }
+    }
+
+    getAccounts = async () => {
+        const accounts = await web3.eth.getAccounts()
+        const organisations = await idVerify.methods.institutionInfo().send({
+            from: accounts[0]
+        });
+        this.setState({message: 'Fetched institutions...'});
+        this.setState({organisations: organisations});
+        console.log(":::: "+JSON.parse(organisations))
     }
 
     async componentDidMount() {
         this.setState({owner: await idVerify.methods.owner().call()});
-    }
-
-    onLoad = async () => {
-        const accounts = await web3.eth.getAccounts()
-        this.setState({message: 'Waiting for confirmation...'})
+        this.getAccounts();
     }
 
     render() {
