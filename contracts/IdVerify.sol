@@ -48,7 +48,7 @@ contract IdVerify {
     // idName Request for the user's full name
     // idDob Request for the user's date of birth
     // idHash Request for the user's identity card on the blockchain
-    // idAddress Request for the user's current home address
+    // idHomeAddress Request for the user's current home address
     
   struct idRequest{
     address institutionAddr;
@@ -57,7 +57,7 @@ contract IdVerify {
 	uint idName;
 	uint idDOB;
 	uint idHash;
-	uint idAddress;
+	uint idHomeAddress;
 	uint idOverAllStatus;
     }
     
@@ -121,8 +121,8 @@ contract IdVerify {
     
     // Institutions makes request for Tendity user information here
     
-     function sendRequest(string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
-        dataRequested[msg.sender].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
+     function sendRequest(string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idHomeAddress, uint _idOverAllStatus) public {
+        dataRequested[msg.sender].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idHomeAddress, _idOverAllStatus));
     }
     
       // User can view the total number of requests from institutions here
@@ -139,20 +139,20 @@ contract IdVerify {
     
        // Users views in detail the identity information requested by a specific institution
     
-     function viewIdRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idAddress, uint idOverAllStatus) {
+     function viewIdRequestDetail(uint RequestIndex) public view returns(string memory RequestedBy, uint idNo, uint idName, uint idDOB, uint idHash, uint idHomeAddress, uint idOverAllStatus) {
         idRequest storage thisiIdRequest=dataRequested[msg.sender][RequestIndex];
-        return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idAddress, thisiIdRequest.idOverAllStatus);
+        return (thisiIdRequest.RequestedBy, thisiIdRequest.idNo, thisiIdRequest.idName, thisiIdRequest.idDOB, thisiIdRequest.idHash, thisiIdRequest.idHomeAddress, thisiIdRequest.idOverAllStatus);
     }
     
        // User either accept or reject the institution request here
        // The status of the request is shown here
 
-    function updateIdRequestStatus(uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
+    function updateIdRequestStatus(uint RequestIndex, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idHomeAddress, uint _idOverAllStatus) public {
         dataRequested[msg.sender][RequestIndex].idNo=_idNo;
 		dataRequested[msg.sender][RequestIndex].idName=_idName;
 		dataRequested[msg.sender][RequestIndex].idDOB=_idDOB;
 		dataRequested[msg.sender][RequestIndex].idHash=_idHash;
-		dataRequested[msg.sender][RequestIndex].idAddress=_idAddress;
+		dataRequested[msg.sender][RequestIndex].idHomeAddress=_idHomeAddress;
 		dataRequested[msg.sender][RequestIndex].idOverAllStatus=_idOverAllStatus;
     }
     
@@ -183,7 +183,7 @@ contract IdVerify {
                 if(requestedData.idHash == 2){
                     idHash = _userData.idHash;
                 }
-                if(requestedData.idAddress == 2){
+                if(requestedData.idHomeAddress == 2){
                     idHomeAddress = _userData.idHomeAddress;
                 }
 
