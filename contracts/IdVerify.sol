@@ -1,7 +1,9 @@
 pragma solidity >=0.4.22 <0.9.0;
 contract IdVerify {
 
- 
+ // fullName The user's full name as it appears on the ID card
+ // emailAddress The user's email address
+ // phoneNo The user's mobile number
 
   struct UserInfo {
     string fullName;
@@ -16,6 +18,12 @@ contract IdVerify {
     uint phoneNo,
     address uploader
   );
+  
+  // idNo The identity number on the user's ID card
+  // idName The full name as it appears on the ID card
+  // idDob The date of birth of the user
+  // idHash The hash generated when the user's identity card is uploaded to the blockchain
+  // idHomeAddress The current home address of the applicant
 
   struct UserId {
     uint idNo;
@@ -34,6 +42,13 @@ contract IdVerify {
     string idHomeAddress
 
     );
+    
+    // RequestedBy The institution that requested the information
+    // idNo Request for the user's identity number
+    // idName Request for the user's full name
+    // idDob Request for the user's date of birth
+    // idHash Request for the user's identity card on the blockchain
+    // idAddress Request for the user's current home address
     
   struct idRequest{
     address institutionAddr;
@@ -106,8 +121,8 @@ contract IdVerify {
     
     // Institutions makes request for Tendity user information here
     
-     function sendRequest(address _userAdd, string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
-        dataRequested[_userAdd].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
+     function sendRequest(string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idAddress, uint _idOverAllStatus) public {
+        dataRequested[msg.sender].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idAddress, _idOverAllStatus));
     }
     
       // User can view the total number of requests from institutions here
@@ -149,7 +164,7 @@ contract IdVerify {
     }
     
      // Institution views the identity information that has been approved by the user here
-     // Data not napproved by user will not be shown
+     // Information not approved by user will not be shown
      
     function getData(address _userAdd)public view returns(uint idNo, string memory idName, uint idDob, string memory idHash, string memory idHomeAddress){
         UserId memory _userData = userIds[_userAdd][0];       
