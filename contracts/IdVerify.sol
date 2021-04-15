@@ -4,6 +4,7 @@ contract IdVerify {
  // fullName The user's full name as it appears on the ID card
  // emailAddress The user's email address
  // phoneNo The user's mobile number
+ // uploader The user's address on BSC testnet
 
   struct UserInfo {
     string fullName;
@@ -23,7 +24,7 @@ contract IdVerify {
   // idName The full name as it appears on the ID card
   // idDob The date of birth of the user
   // idHash The hash generated when the user's identity card is uploaded to the blockchain
-  // idHomeAddress The current home address of the applicant
+  // idHomeAddress The current home address of the user
 
   struct UserId {
     uint idNo;
@@ -43,6 +44,7 @@ contract IdVerify {
 
     );
     
+    // institutionAddr The Institution address on BSC testnet
     // RequestedBy The institution that requested the information
     // idNo Request for the user's identity number
     // idName Request for the user's full name
