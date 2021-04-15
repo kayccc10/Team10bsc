@@ -123,8 +123,8 @@ contract IdVerify {
     
     // Institutions makes request for Tendity user information here
     
-     function sendRequest(string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idHomeAddress, uint _idOverAllStatus) public {
-        dataRequested[msg.sender].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idHomeAddress, _idOverAllStatus));
+     function sendRequest(address _userAdd, string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idHomeAddress, uint _idOverAllStatus) public {
+        dataRequested[_userAdd].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idHomeAddress, _idOverAllStatus));
     }
     
       // User can view the total number of requests from institutions here
