@@ -1,24 +1,27 @@
-import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
-import OrganisationMenu from "./OrganisationMenu";
 
-class UserRequest extends Component {
+class OrganisationsList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            owner: ''
+            organisationName: '',
+            owner: '',
+            organisations: []
         }
+    }
+
+    getAccounts = async () => {
+        const organisations = await idVerify.methods.institutionInfo(this.state.owner).call();
+        this.setState({message: 'Fetched institutions...'});
+        this.setState({organisations: organisations});
+        console.log(":::: "+this.state.owner)
     }
 
     async componentDidMount() {
         this.setState({owner: await idVerify.methods.owner().call()});
-    }
-
-    onLoad = async () => {
-        const accounts = await web3.eth.getAccounts()
-        this.setState({message: 'Waiting for confirmation...'})
+        await this.getAccounts();
     }
 
     render() {
@@ -36,4 +39,4 @@ class UserRequest extends Component {
     }
 }
 
-export default UserRequest;
+export default OrganisationsList;
