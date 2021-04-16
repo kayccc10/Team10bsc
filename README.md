@@ -10,4 +10,4 @@ Tendity aims to expedite the process by creating an ecosystem where clients can 
 Tendity is built on the binance smart chain (BSC) which is known for it's interoperability, cheap transaction fee, and fast transaction speed. To use the tendity plattform, users must use an address on the BSC blockchain.
 
 
-<h1 align="center>HOW IT WORKS</h1>
+<h1 align="center">HOW IT WORKS</h1>
