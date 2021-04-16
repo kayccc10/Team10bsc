@@ -25,13 +25,7 @@ Tendity is built on the binance smart chain (BSC) which is known for it's cheap 
   <li>Your mobile number</li>
 <ul/><br/>
 <hr/>
-  <ol>
-<li>red</li>
-<li>orange</li>
-<li>blue</li>
-<li>green</li>
-<ol/>
-<br/>
+
   
 <p> for Institution/Organisation to access user's information, they must; </p>
 <ul>
