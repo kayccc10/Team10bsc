@@ -27,7 +27,7 @@ Tendity is built on the binance smart chain (BSC) which is known for it's cheap 
 <hr/>
 
   
-<p> for Institution/Organisation to access user's information, they must; </p>
+<p> for Institution/Organisation to access user's identity information, they must; </p>
 <ul>
   <li>have a BSC address</li>
   <li>create a Tendity account</li>
