@@ -11,3 +11,12 @@ Tendity is built on the binance smart chain (BSC) which is known for it's intero
 
 
 <h1 align="center">HOW IT WORKS</h1>
+
+<p> The following are the requirements to create a Tendity account </p>
+<ul>
+<li>A BSC address</li>
+<li>One identity card i.e national ID card, driver license, or an international passport</li>
+<li>The identity number on your ID card</li>
+<li>Your current home address</li>
+<li>Your mobile number</li>
+<ul/>
