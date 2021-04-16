@@ -124,7 +124,13 @@ contract IdVerify {
     // Institutions makes request for Tendity user information here
     
      function sendRequest(address _userAdd, string memory _RequestedBy, uint _idNo, uint _idName, uint _idDOB, uint _idHash, uint _idHomeAddress, uint _idOverAllStatus) public {
-        dataRequested[_userAdd].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idHomeAddress, _idOverAllStatus));
+        require(_idNo == 1 || _idNo == 0);
+	require( _idName == 1 ||  _idName == 0);
+	require(_idDOB == 1 || _idDOB == 0);
+	require(_idHash == 1 || _idHash == 0);
+	require(_idHomeAddress == 1 || _idHomeAddress == 0);
+	require(_idHash == 1 || _idHash == 0);
+	dataRequested[_userAdd].push(idRequest(msg.sender,_RequestedBy, _idNo, _idName, _idDOB, _idHash, _idHomeAddress, _idOverAllStatus));
     }
     
       // User can view the total number of requests from institutions here
