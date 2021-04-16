@@ -7,7 +7,7 @@ This is a Decentralized Application that gives users the option of only sharing 
 
 Tendity aims to expedite the process by creating an ecosystem where clients can easily place their verified identity cards on the blockchain, relieving institutions of the verification process during registration thereby speeding up the registration. It is the application for your virtual identity. WE help you create a profile that you can use numerously, only through singular uploads of your particulars.
 
-Tendity is built on the binance smart chain (BSC) which is known for it's interoperability, cheap transaction fee, and fast transaction speed. To use the tendity plattform, users must use an address on the BSC blockchain.
+Tendity is built on the binance smart chain (BSC) which is known for it's cheap transaction fee and fast transaction speed. To use the tendity plattform, users must use an address on the BSC blockchain.
 
 
 <h1 align="center">HOW IT WORKS</h1>
