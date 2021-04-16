@@ -11,8 +11,7 @@ Tendity is built on the binance smart chain (BSC) which is known for it's cheap 
 
 
 <h1 align="center">WHO CAN USE TENDITY</h1>
-<p>Everyone can create a Tendity account as long they possess a national ID card, driver license, or an international passport. Institutions/Organisations can also use Tendity to
-  access user's identity information on our platform.</p>
+<p>Everyone can create a Tendity account as long they possess a national ID card, driver license, or an international passport. Institutions/Organisations can also use Tendity to access user's identity information on our platform.</p>
 
 <h1 align="center">HOW IT WORKS</h1>
 
@@ -24,13 +23,13 @@ Tendity is built on the binance smart chain (BSC) which is known for it's cheap 
   <li>Your current home address</li>
   <li>Your email address</li>
   <li>Your mobile number</li>
-<ul/>
-<br/>
-<br/>
+<ul/><br/>
+<hr/>
 
 <p> for Institution/Organisation to access user's information, they must; </p>
 <ul>
   <li>have a BSC address</li>
+  <li>create a Tendity account</li>
   <li>make a request for user's identity information</li>
   <li>get user's approval</li>
   <li>must be a registered company</li>
