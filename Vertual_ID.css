@@ -81,3 +81,10 @@ footer,.top{
 #form3:target{display: block;}
 
 button a{color: grey;}
+
+.request div{
+        height: 40px;
+        background: lightgrey;
+        padding: 12px;
+        margin-top: 2px;
+       }
