@@ -23,6 +23,8 @@ class Home extends Component {
                     <h1 className="display-5 fw-bold">Welcome to Tendity</h1>
                     <div className="col-lg-6 mx-auto">
                         <p className="lead mb-4">Identity management made easy....Team10 BSC project</p>
+                        <hr/>
+                        To register as a user, click user.
                         <HomeMenu/>
                     </div>
                 </div>
