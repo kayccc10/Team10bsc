@@ -36,6 +36,8 @@ Tendity is built on the binance smart chain (BSC) which is known for it's cheap 
   <li>must be a registered company</li>
   <li>state reason for request</li>
 <ul/>
+  <br/>
+  <br/>
   
   ![image](https://user-images.githubusercontent.com/78310709/115115793-3e0ace00-9f8e-11eb-96a9-93a1c0e7593c.png)
 
