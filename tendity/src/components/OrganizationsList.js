@@ -14,7 +14,7 @@ class OrganizationsList extends Component {
 
     getAccounts = async () => {
         const organizations = await idVerify.methods.institutionInfo(this.state.owner).call();
-        this.setState({message: 'Fetched institutions...'});
+        this.setState({message: 'Institutions fetched.'});
         this.setState({organizations: organizations});
         console.log(":::: "+organizations)
     }
@@ -26,13 +26,13 @@ class OrganizationsList extends Component {
 
     render() {
         return (
-            <div className="container" style={{padding: "0px"}}>
+            <div className="container text-center" style={{display: "block", margin: "auto"}}>
                 <body >
-                <h5>.</h5>
+                <h5 style={{marginTop: "2em"}}>Organizations</h5>
                 <hr/>
-                All Organization Names will appear here.
+                {this.state.organizations}
                 <hr/>
-                <h4>{this.state.message}</h4>
+                <h6 className="alert alert-success">{this.state.message}</h6>
                 </body>
             </div>
         )

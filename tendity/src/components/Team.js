@@ -1,23 +1,54 @@
 import '../App.css';
 import {Component} from "react/cjs/react.production.min";
-import idVerify from "../idVerify";
 
 class Team extends Component {
     render() {
         return (
-            <div className="container" style={{opacity: "90%"}}>
-                thfhg
                 <body>
                 <div className="container">
-                    <h5>Team Info</h5>
+                    <h5 style={{textAlign: "center"}}>Team Info</h5>
                     <hr/>
 
                     <div className="row">
-                        <div className="card" style="width: 18rem;">
+                        <div className="card" style={{width: "18rem"}}>
                             <div className="card-body">
-                                <h5 className="card-title">// TODO: Name</h5>
+                                <h5 className="card-title">Kene</h5>
                                 <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
-                                <p className="card-text">// TODO: Intro </p>
+                                <a href="#" className="card-link">//TODO: Github</a>
+                            </div>
+                        </div>
+                        <div className="card" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Joker</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
+                                <a href="#" className="card-link">//TODO: Github</a>
+                            </div>
+                        </div>
+                        <div className="card" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Dimitri</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
+                                <a href="#" className="card-link">//TODO: Github</a>
+                            </div>
+                        </div>
+                        <div className="card" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Mandla</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
+                                <a href="#" className="card-link">//TODO: Github</a>
+                            </div>
+                        </div>
+                        <div className="card" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Mackenzie</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
+                                <a href="#" className="card-link">//TODO: Github</a>
+                            </div>
+                        </div>
+                        <div className="card" style={{width: "18rem"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">Rose</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">//TODO: Role</h6>
                                 <a href="#" className="card-link">//TODO: Github</a>
                             </div>
                         </div>
@@ -25,7 +56,6 @@ class Team extends Component {
                 </div>
                 <hr/>
                 </body>
-            </div>
         );
     }
 }
