@@ -14,8 +14,14 @@ class UserRequest extends Component {
         this.setState({owner: await idVerify.methods.owner().call()});
     }
 
-    onLoadApprovalRequest = async () => {
-        this.setState({message: 'Waiting for confirmation...'})
+    handleInputChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    onRequestInfo = async () => {
+        this.setState({message: 'Waiting for request...'})
     }
 
     render() {
@@ -24,8 +30,23 @@ class UserRequest extends Component {
                 <body >
                 {/*<UserMenu/>*/}
                 <hr/>
-                User requests to approve will appear here.
-                <hr/>
+                <form onSubmit={this.onRequestInfo} className="row g-3">
+                    <div className="col-auto" style={{padding: "30px"}}>
+                        <div className="mb-3">
+                            <label htmlFor="userNationalId" className="form-label">User national Id</label>
+                            <p>Input user national ID to request access for their info.</p>
+                            <input
+                                name="userNationalId"
+                                onChange={this.handleInputChange.bind(this)}
+                                type="text" className="form-control" id="userId"
+                                placeholder="User National ID"/>
+                        </div>
+                        <p>Note! To interact with the contract, you need some BNB(0.001).</p>
+                        <div className="col-auto">
+                            <button type="submit" className="btn btn-primary mb-3">Request</button>
+                        </div>
+                    </div>
+                </form>                <hr/>
                 <h4>{this.state.message}</h4>
                 </body>
             </div>

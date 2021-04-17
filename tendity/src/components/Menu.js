@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import OrganizationsList from "./OrganizationsList";
 import Team from "./Team";
 import Home from "./Home";
+import {Redirect} from "react-router";
 
 export default function Menu() {
     return (
@@ -14,6 +15,9 @@ export default function Menu() {
                 <Link to="/about" className="nav-link float-right">About</Link>
             </div>
             <Switch>
+                <Route exact path="/">
+                    <Redirect to="/home" />
+                </Route>
                 <Route path="/home">
                     <Home/>
                 </Route>
