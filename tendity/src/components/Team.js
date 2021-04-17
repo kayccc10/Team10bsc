@@ -1,10 +1,12 @@
-import './App.css';
+import '../App.css';
 import {Component} from "react/cjs/react.production.min";
+import idVerify from "../idVerify";
 
-class App extends Component {
+class Team extends Component {
     render() {
         return (
             <div className="container" style={{opacity: "90%"}}>
+                thfhg
                 <body>
                 <div className="container">
                     <h5>Team Info</h5>
@@ -28,4 +30,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Team;

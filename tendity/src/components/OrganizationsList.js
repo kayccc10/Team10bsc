@@ -1,22 +1,22 @@
 import idVerify from "../idVerify";
 import {Component} from "react";
 
-class OrganisationsList extends Component {
+class OrganizationsList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            organisationName: '',
+            organizationName: '',
             owner: '',
-            organisations: []
+            organizations: []
         }
     }
 
     getAccounts = async () => {
-        const organisations = await idVerify.methods.institutionInfo(this.state.owner).call();
+        const organizations = await idVerify.methods.institutionInfo(this.state.owner).call();
         this.setState({message: 'Fetched institutions...'});
-        this.setState({organisations: organisations});
-        console.log(":::: "+this.state.owner)
+        this.setState({organizations: organizations});
+        console.log(":::: "+organizations)
     }
 
     async componentDidMount() {
@@ -30,7 +30,7 @@ class OrganisationsList extends Component {
                 <body >
                 <h5>.</h5>
                 <hr/>
-                All Organisation Names will appear here.
+                All Organization Names will appear here.
                 <hr/>
                 <h4>{this.state.message}</h4>
                 </body>
@@ -39,4 +39,4 @@ class OrganisationsList extends Component {
     }
 }
 
-export default OrganisationsList;
+export default OrganizationsList;

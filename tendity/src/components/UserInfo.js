@@ -1,7 +1,7 @@
 import idVerify from "../idVerify";
 import {Component} from "react";
 
-class UserRequest extends Component {
+class UserInfo extends Component {
 
     constructor(props) {
         super(props);
@@ -12,10 +12,11 @@ class UserRequest extends Component {
 
     async componentDidMount() {
         this.setState({owner: await idVerify.methods.owner().call()});
+        this.onLoadApprovalRequest();
     }
 
     onLoadApprovalRequest = async () => {
-        this.setState({message: 'Waiting for confirmation...'})
+        this.setState({message: 'Waiting for user data...'});
     }
 
     render() {
@@ -24,7 +25,7 @@ class UserRequest extends Component {
                 <body >
                 {/*<UserMenu/>*/}
                 <hr/>
-                User requests to approve will appear here.
+                User info retrieved to approve will appear here.
                 <hr/>
                 <h4>{this.state.message}</h4>
                 </body>
@@ -33,4 +34,4 @@ class UserRequest extends Component {
     }
 }
 
-export default UserRequest;
+export default UserInfo;

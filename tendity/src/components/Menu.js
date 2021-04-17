@@ -1,8 +1,8 @@
 import React from "react";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
-import OrganisationsList from "./OrganisationsList";
-import Team from "../Team";
+import OrganizationsList from "./OrganizationsList";
 import Home from "./Home";
+import Team from "./Team";
 
 export default function Menu() {
     return (
@@ -21,7 +21,7 @@ export default function Menu() {
                                 <Link to="/" className="nav-link">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/registered-organisations" className="nav-link">Registered Organisations</Link>
+                                <Link to="/registered-organizations" className="nav-link">Registered Organizations</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/team" className="nav-link">Team Members</Link>
@@ -33,8 +33,8 @@ export default function Menu() {
                     <Route path="/">
                         <Home/>
                     </Route>
-                    <Route path="/registered-organisations">
-                        <OrganisationsList/>
+                    <Route path="/registered-organizations">
+                        <OrganizationsList/>
                     </Route>
                     <Route path="/team">
                         <Team/>
