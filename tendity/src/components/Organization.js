@@ -1,15 +1,15 @@
 import web3 from "../web3";
 import idVerify from "../idVerify";
 import {Component} from "react";
-import OrganisationMenu from "./OrganisationMenu";
+import OrganizationMenu from "./OrganizationMenu";
 
-class Organisation extends Component {
+class Organization extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             owner: '',
-            organisationName: ''
+            organizationName: ''
         }
     }
 
@@ -23,15 +23,16 @@ class Organisation extends Component {
         });
     }
 
-    onAddOrganisation = async () => {
-        console.log("------------" + this.state.organisationName)
+    onAddOrganization = async e => {
+        e.preventDefault();
+
         const accounts = await web3.eth.getAccounts()
-        await idVerify.methods.registerInstitution(this.state.organisationName).send({
+        await idVerify.methods.registerInstitution(this.state.organizationName).send({
             from: accounts[0],
             gas: '1000000'
         });
 
-        this.setState({message: 'Added Organisation..: ' +this.state.organisationName})
+        this.setState({message: 'Added Organization..: ' +this.state.organizationName})
     }
 
     render() {
@@ -39,20 +40,20 @@ class Organisation extends Component {
             <div className="container" style={{padding: "0px"}}>
                 <body >
                 <hr/>
-                <OrganisationMenu/>
-                <form onSubmit={this.onAddOrganisation} className="row g-3">
+                <OrganizationMenu/>
+                <form onSubmit={this.onAddOrganization} className="row g-3">
                     <div className="col-auto" style={{padding: "30px"}}>
                         <div className="mb-3">
-                            <label htmlFor="orgName" className="form-label">Organisation name</label>
+                            <label htmlFor="organizationName" className="form-label">Organization name</label>
                             <input
-                                name="organisationName"
+                                name="organizationName"
                                 onChange={this.handleInputChange.bind(this)}
-                                type="text" className="form-control" id="organisationName"
-                                placeholder="Organisation name"/>
+                                type="text" className="form-control" id="organizationName"
+                                placeholder="Organization name"/>
                         </div>
-                        <p>Note! To interact with the contract, you need some ETH(0.001).</p>
+                        <p>Note! To interact with the contract, you need some BNB(0.001).</p>
                         <div className="col-auto">
-                            <button type="submit" className="btn btn-primary mb-3">Add Organisation</button>
+                            <button type="submit" className="btn btn-primary mb-3">Add Organization</button>
                         </div>
                     </div>
                 </form>
@@ -64,4 +65,4 @@ class Organisation extends Component {
     }
 }
 
-export default Organisation;
+export default Organization;
