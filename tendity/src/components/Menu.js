@@ -4,6 +4,7 @@ import OrganizationsList from "./OrganizationsList";
 import Team from "./Team";
 import Home from "./Home";
 import {Redirect} from "react-router";
+import About from "./About";
 
 export default function Menu() {
     return (
@@ -26,6 +27,9 @@ export default function Menu() {
                 </Route>
                 <Route path="/team">
                     <Team/>
+                </Route>
+                <Route path="/about">
+                    <About/>
                 </Route>
             </Switch>
         </Router>
