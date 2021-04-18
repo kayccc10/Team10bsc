@@ -33,13 +33,13 @@ class UserRequest extends Component {
                 <form onSubmit={this.onRequestInfo} className="row g-3">
                     <div className="col-auto" style={{padding: "30px"}}>
                         <div className="mb-3">
-                            <label htmlFor="userNationalId" className="form-label">User national Id</label>
-                            <p>Input user national ID to request access for their info.</p>
+                            <label htmlFor="userNationalId" className="form-label">User Address</label>
+                            <p>Input user address to request access for their info.</p>
                             <input
                                 name="userNationalId"
                                 onChange={this.handleInputChange.bind(this)}
                                 type="text" className="form-control" id="userId"
-                                placeholder="User National ID"/>
+                                placeholder="User address"/>
                         </div>
                         <p>Note! To interact with the contract, you need some BNB(0.001).</p>
                         <div className="col-auto">
