@@ -1,6 +1,5 @@
 import idVerify from "../idVerify";
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
 
 class AcceptedRequests extends Component {
 
@@ -26,15 +25,17 @@ class AcceptedRequests extends Component {
     }
 
     render() {
+        // TODO: Link smart contract data
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body>
-                {/*<UserMenu/>*/}
                 <hr/>
                 <table className="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Request to</th>
                         <th scope="col">Status</th>
                     </tr>
@@ -42,7 +43,54 @@ class AcceptedRequests extends Component {
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>address requested to appear here</td>
+                        <td>367645453</td>
+                        <td>Kene M</td>
+                        <td>0x2865b2712F83E17761185D654D5752a3831Bf5AB</td>
+                        <td>
+                            <span className="badge bg-danger">Rejected</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>2345677564</td>
+                        <td>Steve Oria</td>
+                        <td>0x87y6745AC2223eCe34A3A4d81FA65efc53319e65</td>
+                        <td>
+                            <span className="badge bg-success">Approved</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>367645453</td>
+                        <td>Prince D</td>
+                        <td>0x0987b2712F83E17761185D654D5752a3831Bf5AB</td>
+                        <td>
+                            <span className="badge bg-success">Approved</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>367645453</td>
+                        <td>Melanie Atis</td>
+                        <td>0x06756b2712F83E17761185D654D5752a3831Bf5AB</td>
+                        <td>
+                            <span className="badge bg-danger">Rejected</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>367645453</td>
+                        <td>David Kenneth</td>
+                        <td>0x8790b2712F83E17761185D654D5752a3831Bf5AB</td>
+                        <td>
+                            <span className="badge bg-danger">Rejected</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>367645453</td>
+                        <td>Jackie Lee</td>
+                        <td>0x54bB745AC2223eCe34A3A4d81FL65efc53919e65</td>
                         <td>
                             <span className="badge bg-success">Approved</span>
                         </td>
