@@ -1,6 +1,7 @@
 <h1 align="center">TENDITY</h1>
 Binance smart chain project ~ Identity request and verification
 
+
 What is Tendity?
 
 This is a Decentralized Application that gives users the option of only sharing their personal information with organizations they know and trust. It gives the users the power of their data as can choose which applications have access to what information. Picture a reality where you can create multiple accounts;PayPal, Binance, Credit Account, ThatAccount.com etc which need user personal details to function only without the gist of filling in your details and having to upload personal documents everytime.
