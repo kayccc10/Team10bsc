@@ -37,12 +37,12 @@ class OrgUserRequest extends Component {
     }
 
     render() {
-        // TODO: Link smart contract data
+        // TODO: Link smart contract data - WIP
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body>
                 <hr/>
-                <h3>You have {this.state.numberOfRequests} requests. </h3>
+                <h3>You have 3 requests. </h3>
                 <hr/>
                 <table className="table">
                     <thead>
