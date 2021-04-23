@@ -1,4 +1,4 @@
-# Tendity
+#             TENDITY
 Binance smart chain project ~ Identity request and verification
 
 What is Tendity?
