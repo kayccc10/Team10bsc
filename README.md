@@ -1,4 +1,4 @@
-<h1 aligh="center">TENDITY</h1>
+<h1 align="center">TENDITY</h1>
 Binance smart chain project ~ Identity request and verification
 
 What is Tendity?
