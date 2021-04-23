@@ -74,7 +74,7 @@ contract IdVerify {
     
   
 
-  mapping(address => UserInfo[]) Users;
+  //mapping(address => UserInfo[]) Users;
   mapping(address => UserId[]) userIds;
   mapping(address => idRequest[]) dataRequested;  // Data requested by the institution
   mapping (address => string) public institutionInfo;
@@ -86,14 +86,14 @@ contract IdVerify {
   }
   
    /*	Users does their registration here, data required includes:
- 	full name, email address, and phone number	 */
+ 	full name, email address, and phone number	 
 
   function addUser(string memory _fullName, string memory _emailAddress, uint _phoneNo) public {
 
     Users[msg.sender].push( UserInfo(_fullName, _emailAddress, _phoneNo, msg.sender));
     
     emit userCreated(_fullName, _emailAddress, _phoneNo, msg.sender);
-  }
+  }*/
   
     /*	Tendity members upload their identity cards information here as it
   	appears on their identity cards. The hash generated when their
@@ -164,12 +164,12 @@ contract IdVerify {
 		dataRequested[msg.sender][RequestIndex].idOverAllStatus=_idOverAllStatus;
     }
     
- 	// Users views their profile information here
+ 	/* Users views their profile information here
     
     function viewUser(uint UserIndex) public view returns(string memory fullName,string memory emailAddress,uint phoneNo,address uploader) {
         UserInfo storage ThisUser=Users[msg.sender][UserIndex];
         return (ThisUser.fullName, ThisUser.emailAddress, ThisUser.phoneNo, ThisUser.uploader);
-    }
+    }*/
     
      // Institution views the identity information that has been approved by the user here
      // Information not approved by user will not be shown
