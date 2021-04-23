@@ -7,12 +7,23 @@ class OrgUserRequest extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            owner: ''
+            numberOfRequests: 0
         }
     }
 
     async componentDidMount() {
-        this.setState({owner: await idVerify.methods.owner().call()});
+        this.getRequestsInfo();
+    }
+
+    getRequestsInfo = async e => {
+        this.setState({message: 'Fetching org requests info...'})
+        const numberOfRequests = await idVerify.methods.viewIdRequestLength().call();
+        this.setState({numberOfRequests: numberOfRequests});
+
+        const res = await idVerify.methods.viewUserId(0).call();
+        this.setState({user: res});
+        console.log("FETCHING.." + res)
+
     }
 
     handleInputChange(e) {
@@ -26,10 +37,12 @@ class OrgUserRequest extends Component {
     }
 
     render() {
+        // TODO: Link smart contract data
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body>
-                {/*<UserMenu/>*/}
+                <hr/>
+                <h3>You have {this.state.numberOfRequests} requests. </h3>
                 <hr/>
                 <table className="table">
                     <thead>
@@ -42,7 +55,23 @@ class OrgUserRequest extends Component {
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>org-name to appear here</td>
+                        <td>Mitsumi Corp</td>
+                        <td>
+                            <Link to="#" className="btn btn-outline-success btn-sm px-4 me-sm-3">Approve </Link>
+                            <Link to="#" className="btn btn-outline-danger btn-sm px-4 me-sm-3">Reject</Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mistiq Africa</td>
+                        <td>
+                            <Link to="#" className="btn btn-outline-success btn-sm px-4 me-sm-3">Approve </Link>
+                            <Link to="#" className="btn btn-outline-danger btn-sm px-4 me-sm-3">Reject</Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Sendy Ltd</td>
                         <td>
                             <Link to="#" className="btn btn-outline-success btn-sm px-4 me-sm-3">Approve </Link>
                             <Link to="#" className="btn btn-outline-danger btn-sm px-4 me-sm-3">Reject</Link>

@@ -10,7 +10,6 @@ export default function UserMenu() {
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <Link to="/user-info" className="btn btn-outline-success btn-lg px-4 me-sm-3">My details</Link>
                 <Link to="/user-requests" className="btn btn-outline-success btn-lg px-4 me-sm-3">View/Approve requests</Link>
-                {/*<Link to="/update-info" className="btn btn-outline-info btn-lg px-4 me-sm-3">Update Info</Link>*/}
             </div>
                 <Switch>
                     <Route path="/user-requests">
