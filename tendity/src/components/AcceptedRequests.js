@@ -25,7 +25,7 @@ class AcceptedRequests extends Component {
     }
 
     render() {
-        // TODO: Link smart contract data
+        // TODO: Link smart contract data - WIP
         return (
             <div className="container" style={{padding: "0px"}}>
                 <body>
@@ -43,7 +43,7 @@ class AcceptedRequests extends Component {
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>367645453</td>
+                        <td>45676876</td>
                         <td>Kene M</td>
                         <td>0x2865b2712F83E17761185D654D5752a3831Bf5AB</td>
                         <td>
@@ -52,7 +52,7 @@ class AcceptedRequests extends Component {
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>2345677564</td>
+                        <td>56768765</td>
                         <td>Steve Oria</td>
                         <td>0x87y6745AC2223eCe34A3A4d81FA65efc53319e65</td>
                         <td>
@@ -61,7 +61,7 @@ class AcceptedRequests extends Component {
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>367645453</td>
+                        <td>46789765</td>
                         <td>Prince D</td>
                         <td>0x0987b2712F83E17761185D654D5752a3831Bf5AB</td>
                         <td>
@@ -70,7 +70,7 @@ class AcceptedRequests extends Component {
                     </tr>
                     <tr>
                         <th scope="row">4</th>
-                        <td>367645453</td>
+                        <td>343556563</td>
                         <td>Melanie Atis</td>
                         <td>0x06756b2712F83E17761185D654D5752a3831Bf5AB</td>
                         <td>
@@ -79,7 +79,7 @@ class AcceptedRequests extends Component {
                     </tr>
                     <tr>
                         <th scope="row">5</th>
-                        <td>367645453</td>
+                        <td>456786775</td>
                         <td>David Kenneth</td>
                         <td>0x8790b2712F83E17761185D654D5752a3831Bf5AB</td>
                         <td>
@@ -88,7 +88,7 @@ class AcceptedRequests extends Component {
                     </tr>
                     <tr>
                         <th scope="row">6</th>
-                        <td>367645453</td>
+                        <td>33343635</td>
                         <td>Jackie Lee</td>
                         <td>0x54bB745AC2223eCe34A3A4d81FL65efc53919e65</td>
                         <td>
